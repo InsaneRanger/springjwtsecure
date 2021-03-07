@@ -15,6 +15,7 @@
     <description>Spring Boot Security REST</description>
     <properties>
         <java.version>15</java.version>
+        <mysql.connector.ver>8.0.23</mysql.connector.ver>
     </properties>
     <dependencies>
         <dependency>
@@ -43,6 +44,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.ver}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
