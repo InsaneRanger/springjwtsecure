@@ -12,6 +12,8 @@ package com.springsec.springjwtsecure.security;
 
 
 import com.springsec.springjwtsecure.model.User;
+import com.springsec.springjwtsecure.security.jwt.JWTUser;
+import com.springsec.springjwtsecure.security.jwt.JWTUserFactory;
 import com.springsec.springjwtsecure.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -38,6 +40,9 @@ public class JWTUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("User with username: " + username + " notfound");
 
         }
-        return null;
+
+        JWTUser jwtUser = JWTUserFactory.create(user);
+        log.info("In loadByUserName - user with username: {} successfully loaded", username);
+        return jwtUser;
     }
 }
